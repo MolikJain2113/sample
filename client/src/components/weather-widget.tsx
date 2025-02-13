@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Cloud, Sun, CloudRain } from "lucide-react";
+import { Cloud, Sun, CloudRain, Loader2 } from "lucide-react";
 
 type WeatherData = {
   temp: number;
@@ -8,7 +8,7 @@ type WeatherData = {
 };
 
 export default function WeatherWidget() {
-  const { data: weather } = useQuery<WeatherData>({
+  const { data: weather, isLoading } = useQuery<WeatherData>({
     queryKey: ["weather"],
     queryFn: async () => {
       // For demo purposes, return mock weather data
@@ -22,18 +22,36 @@ export default function WeatherWidget() {
   const getWeatherIcon = (condition: string) => {
     switch (condition) {
       case "sunny":
-        return <Sun className="h-8 w-8" />;
+        return <Sun className="h-8 w-8 text-yellow-500" />;
       case "rainy":
-        return <CloudRain className="h-8 w-8" />;
+        return <CloudRain className="h-8 w-8 text-blue-500" />;
       default:
-        return <Cloud className="h-8 w-8" />;
+        return <Cloud className="h-8 w-8 text-gray-500" />;
     }
   };
 
+  if (isLoading) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Weather</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-center py-4">
+            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
-    <Card>
+    <Card className="bg-gradient-to-br from-background to-muted">
       <CardHeader>
-        <CardTitle>Weather</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <Cloud className="h-5 w-5" />
+          Weather
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex items-center justify-between">
