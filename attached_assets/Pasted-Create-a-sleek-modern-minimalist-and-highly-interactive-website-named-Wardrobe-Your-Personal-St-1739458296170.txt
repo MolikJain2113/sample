@@ -1,0 +1,67 @@
+Create a sleek, modern, minimalist, and highly interactive website named "Wardrobe [Your Personal Stylist]". Use HTML, CSS (preferably TailwindCSS for a clean, modern look), and JavaScript (React.js is recommended) along with Three.js (or a similar library) for 3D interactive elements.
+
+**FEATURES TO IMPLEMENT:**
+
+1. **User Authentication (Login/Signup)**
+
+   - Build a cool, interactive login/signup page with smooth animations.
+   - Securely store the username and password in a backend database (e.g., Firebase, Supabase, or MongoDB).
+   - Ensure proper validations (e.g., email format, password strength) and error handling.
+   - Upon successful authentication, redirect users to the homepage.
+
+2. **3D Interactive Homepage**
+
+   - Design a beautiful, eye-catching homepage that immediately impresses users with 3D interactive elements.
+   - Include the following components on the homepage:
+     - **Your Wardrobe:** Display a pictorial collection of all clothing items uploaded by the user.
+     - **Calendar:** A dynamic calendar interface for scheduling or outfit planning.
+     - **Current Weather:** A widget showing real-time weather information, possibly affecting the theme or background.
+     - **Profile Settings:** An icon located in the top-right corner that leads to the profile management section.
+   - Ensure smooth transitions, hover effects, and interactive animations to create a premium user experience.
+
+3. **Profile Section**
+
+   - Create a detailed profile page where users can input and update their personal information:
+     - **Personal Details:** Date of birth, gender, nick name, height, weight.
+     - **Body Type Options:** Provide selectable options (inverted triangle, trapezium, rectangle, triangle, round, "I am not sure").
+     - **Color Palette Suitability:** Options include warm-bright, cool-soft, warm-deep, cool-vivid, and "I am not sure".
+   - Use a card-based layout or form design that is clean and user-friendly.
+
+4. **Clothing Upload & Manual Tagging System**
+
+   - Place an "Add" button at the bottom of the homepage (or a fixed location) for users to upload images of their clothing items.
+   - Ensure that the uploaded images are stored in the database or cloud storage.
+   - Implement an intuitive tagging interface for each clothing item. Users should be able to manually tag items with multiple categories, such as:
+     - **Season**
+     - **Occasion**
+     - **Category**
+     - **Colour**
+     - **Material**
+     - **Pattern**
+     - **Style**
+     - **Fit**
+     - **Neckline**
+     - **Length**
+     - **Brand**
+   - The UI for tagging should utilize dropdowns, checkboxes, or a similar component for clarity and ease-of-use.
+   - (I will upload reference images for the desired tagging UI layout later.)
+
+5. **AI Styling Option (Future Integration)**
+
+   - Include an interface element for an AI styling feature (this can be a button or a separate section) that, when activated, allows users to:
+     - Select an occasion (daily, school, work, travel, party, date, wedding, others).
+     - Choose a preferred style (none, casual, classic, street, modern, minimal, feminine, etc.).
+     - Specify the day and date.
+   - *Note: The actual recommendation engine functionality will be implemented later. For now, simply set up the UI for collecting these inputs and placeholder logic for recommendations (e.g., display a message like "Top 5 Personalized Outfits will appear here").*
+   - Additionally, provide a feature for users to rate the recommended outfits (this feature can be static or non-functional until full integration).
+
+**TECHNICAL STACK & DESIGN CONSIDERATIONS:**
+
+- **Frontend:** React.js (for a dynamic and component-based architecture), TailwindCSS (for a minimalist, modern design), and Three.js (for interactive 3D elements).
+- **Backend:** Use Firebase, Supabase, or MongoDB for user authentication, data storage, and image hosting.
+- **Responsive Design:** Ensure the website is mobile-friendly and performs smoothly across devices.
+- **Performance Optimization:** Implement lazy loading for images and efficient state management to maintain interactivity without lag.
+
+**GOAL:** Focus on building an interactive website that allows users to sign up/login, view a 3D interactive homepage with multiple features (Wardrobe, Calendar, Weather, Profile Settings), upload images, and manually tag them according to various categories. The AI styling recommendation engine should have its UI integrated now, with full functionality added later ,also add smooth dark mode button in the website 
+
+Please generate all necessary code and structure so that every aspect mentioned above is implemented clearly and accurately. The design must be sleek, modern, and ensure a seamless user experience.

@@ -1,0 +1,82 @@
+**Replit AI Prompt for "Wardrobe: Your Personal Stylist" Project**  
+
+---
+
+**Objective**: Create a sleek, modern, minimalist, and **3D-interactive website** named **Wardrobe** with the following features. Prioritize **visual appeal**, **user interactivity**, and **robust backend storage** for user data and images.  
+
+---
+
+### **1. Login/Signup Page**  
+- **Design**:  
+  - Ultra-modern UI with smooth animations (e.g., hover effects, gradient overlays, floating transitions).  
+  - Clean input fields with floating labels and validation (e.g., email format, password strength).  
+  - Include a "Sign in with Google" button for OAuth integration.  
+- **Backend**:  
+  - Use **Node.js/Express** or **Python/Flask** to store usernames, emails, and **hashed passwords** in a database (e.g., PostgreSQL, MongoDB).  
+  - Ensure secure cookie/session management for user authentication.  
+
+---
+
+### **2. 3D Interactive Homepage**  
+- **Visual Design**:  
+  - **3D elements** (e.g., rotating wardrobe, parallax layers) using **Three.js** or **React-Three-Fiber**.  
+  - Minimalist grid/card layout for options:  
+    - **Your Wardrobe**: Thumbnail grid of user-uploaded clothing items.  
+    - **Calendar**: Embedded calendar widget (e.g., FullCalendar.js).  
+    - **Current Weather**: Fetch data via API (OpenWeatherMap) with a dynamic icon.  
+    - **Profile Setting**: Top-right corner (avatar icon dropdown).  
+- **Interactivity**:  
+  - Smooth transitions between sections.  
+  - Hover effects on thumbnails (e.g., zoom, shadow).  
+
+---
+
+### **3. Profile Settings**  
+- **Input Fields**:  
+  - Date of birth (date picker), gender (dropdown: male/female/non-binary), nickname, height (cm/in), weight (kg/lb).  
+  - **Body Type**: Dropdown with icons for shapes (inverted triangle, trapezium, etc.).  
+  - **Color Palette**: Visual color-picker with options (warm.bright, cool.soft, etc.) as swatches.  
+- **Save Button**: Update data in the database dynamically via AJAX/POST requests.  
+
+---
+
+### **4. Add Clothing Items**  
+- **Floating "+" Button**: Fixed at the bottom-right corner (modern Fab button design).  
+- **Upload Interface**:  
+  - Drag-and-drop image upload with preview.  
+  - **Tagging System**:  
+    - Dropdowns/multi-select for:  
+      - Season (Summer, Winter, etc.), Occasion (Casual, Wedding, etc.), Category (Top, Bottom, Dress, etc.), Color, Material, Pattern, Style, Fit, Neckline, Length, Brand.  
+    - **Backend**: Store images in a database (e.g., Amazon S3 or base64) and associate metadata tags.  
+
+---
+
+### **5. Future-Proofing for AI Styling**  
+- **Placeholder UI**:  
+  - Add a button "Get AI Recommendations" (non-functional for now).  
+  - Design a modal with dropdowns for Occasion, Style, and Date (to be integrated later).  
+
+---
+
+### **Technical Requirements**  
+- **Frontend**:  
+  - React.js (for component-based UI) + Three.js (3D) + Tailwind CSS (styling).  
+  - Mobile-responsive design.  
+- **Backend**:  
+  - REST API endpoints for user auth, image uploads, and tagging.  
+  - Database schema for users, clothing items, and tags.  
+- **Testing**:  
+  - Include unit tests for critical functions (e.g., authentication, image upload).  
+
+---
+
+**Deliverables**:  
+- A fully functional frontend with 3D animations.  
+- Backend APIs connected to a database.  
+- Image upload and tagging system with stored metadata.  
+
+**Note**: Prioritize clarity in code structure for future AI integration. Use Replit’s built-in database/Nix for storage.  
+
+--- 
+
+This prompt ensures Replit AI understands the **scope**, **design language**, and **technical stack** required. Let’s build this! 🚀
