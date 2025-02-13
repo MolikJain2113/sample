@@ -43,8 +43,9 @@ export default function ClothingUpload() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="fixed bottom-8 right-8" size="icon">
+        <Button size="lg" className="gap-2">
           <Plus className="h-4 w-4" />
+          Add to Wardrobe
         </Button>
       </DialogTrigger>
       <DialogContent>
