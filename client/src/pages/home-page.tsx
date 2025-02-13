@@ -1,16 +1,14 @@
-import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import ClothingGrid from "@/components/wardrobe/clothing-grid";
 import ClothingUpload from "@/components/wardrobe/clothing-upload";
-import ProfileSection from "@/components/wardrobe/profile-section";
 import WeatherWidget from "@/components/weather-widget";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
+import ProfileDropdown from "@/components/profile-dropdown";
 
 export default function HomePage() {
-  const { logoutMutation } = useAuth();
   const [date, setDate] = useState<Date | undefined>(new Date());
   const { theme, setTheme } = useTheme();
 
@@ -27,9 +25,7 @@ export default function HomePage() {
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
-            <Button variant="outline" onClick={() => logoutMutation.mutate()}>
-              Logout
-            </Button>
+            <ProfileDropdown />
           </div>
         </div>
       </header>
@@ -51,7 +47,6 @@ export default function HomePage() {
               onSelect={setDate}
               className="rounded-md border"
             />
-            <ProfileSection />
           </div>
         </div>
       </main>
