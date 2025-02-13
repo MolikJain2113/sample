@@ -19,7 +19,7 @@ export const clothes = pgTable("clothes", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").notNull(),
   imageUrl: text("image_url").notNull(),
-  tags: jsonb("tags").notNull(),
+  tags: jsonb("tags").default([]).notNull(),
   season: text("season"),
   occasion: text("occasion"),
   category: text("category"),
@@ -38,7 +38,12 @@ export const insertUserSchema = createInsertSchema(users).pick({
   password: true
 });
 
-export const insertClothingSchema = createInsertSchema(clothes);
+// Create a custom insert schema for clothes that makes tags optional
+export const insertClothingSchema = createInsertSchema(clothes)
+  .extend({
+    tags: z.array(z.string()).default([])
+  })
+  .omit({ id: true });
 
 export const updateProfileSchema = z.object({
   nickname: z.string().optional(),

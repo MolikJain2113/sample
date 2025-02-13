@@ -20,6 +20,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { InsertClothing } from "@shared/schema";
 
 export default function ClothingUpload() {
   const [open, setOpen] = useState(false);
@@ -27,7 +28,17 @@ export default function ClothingUpload() {
 
   const uploadMutation = useMutation({
     mutationFn: async (formData: FormData) => {
-      const res = await apiRequest("POST", "/api/clothes", formData);
+      // Convert FormData to a proper clothing object
+      const clothing: Partial<InsertClothing> = {
+        imageUrl: URL.createObjectURL(formData.get("image") as File),
+        category: formData.get("category") as string,
+        color: formData.get("color") as string,
+        season: formData.get("season") as string,
+        brand: formData.get("brand") as string,
+        tags: [], // Default empty array for tags
+      };
+
+      const res = await apiRequest("POST", "/api/clothes", clothing);
       return res.json();
     },
     onSuccess: () => {
@@ -36,6 +47,13 @@ export default function ClothingUpload() {
       toast({
         title: "Success",
         description: "Clothing item added successfully",
+      });
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
       });
     },
   });
