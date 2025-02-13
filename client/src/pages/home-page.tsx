@@ -7,23 +7,34 @@ import { useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import ProfileDropdown from "@/components/profile-dropdown";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b">
+    <div className="min-h-screen bg-background transition-colors duration-300">
+      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Wardrobe</h1>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text"
+          >
+            Wardrobe
+          </motion.h1>
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="transition-transform hover:scale-110"
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {theme === "dark" ? 
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" /> : 
+                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              }
             </Button>
             <ProfileDropdown />
           </div>
@@ -31,17 +42,42 @@ export default function HomePage() {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           <div className="md:col-span-2 space-y-8">
-            <ClothingGrid />
-            <div className="flex justify-center py-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <ClothingGrid />
+            </motion.div>
+            <motion.div 
+              className="flex justify-center py-4"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
               <ClothingUpload />
-            </div>
+            </motion.div>
           </div>
 
           <div className="space-y-8">
-            <WeatherWidget />
-            <div className="p-4 bg-card rounded-lg border shadow-sm">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <WeatherWidget />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="p-4 bg-card rounded-lg border shadow-sm hover:shadow-md transition-shadow"
+            >
               <Calendar
                 mode="single"
                 selected={date}
@@ -70,9 +106,9 @@ export default function HomePage() {
                   day_hidden: "invisible",
                 }}
               />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </main>
     </div>
   );
